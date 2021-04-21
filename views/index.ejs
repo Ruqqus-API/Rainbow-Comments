@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head'); -%>
+
+
+<header>
+	<div class="container">
+		<%- include('partials/front_nav'); -%>
+		<div class="jumbotron front text-center"></div>
+		<div class="container">
+			<h1 class="display-3 text-white" style="font-family: 'Inter', sans-serif;">
+				Rainbow Comments
+				<br>
+				for
+				<br>
+				Ruqqus
+			</h1>
+			<br>
+			<hr>
+			<br>
+			<p class="text-white">A simple way to make rainbow comments for <strong>Ruqqus</strong></p>
+			<p class="text-white">Website code design stolen from <u><a style="color: inherit;" href="https://ruqqus-auth.glitch.me/">Ruqqus-Auth</a></u> by Panjkrc</p>
+			<a href="#getStarted" class="btn btn-primary">Get Started</a>
+			<a href="https://ruqqus.com/+RuqqusAPI" class="btn btn-secondary">Join +RuqqusAPI</a>
+		</div>
+	</div>
+	</div>
+</header>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head'); -%>
+
+
+
+<body>
+
+	<main>
+		<div class="container pt-5">
+			<div class="row">
+				<div class="col-12 card automatic" id="getStarted">
+					<h3>Rainbowify Your Posts</h3>
+
+					<form onsubmit="event.preventDefault();">
+						<div class="form-group">
+							<label for="comment">Your comment</label>
+							<input type="text" class="form-control" id="comment" name="comment"
+								aria-describedby="comment_help" placeholder="I love Linux!" required>
+						</div>
+
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="waveify" name="waveify" >
+							<label class="custom-control-label" for="waveify">Add wave <small>(doesn't work right now)</small></label>
+
+						</div>
+						<br>
+						<script>
+							function rainbowify(){
+								const colors = ['#eb4034', '#eb8f34', '#b1eb34', '#34eb40', '#34b1eb', '#345feb', '#9334eb', '#eb3493'];
+								let index = 0;
+
+								function rainbowLetter(letter) {
+									return `<span style="color: ${colors[index++ % colors.length]}">${letter}</span>`;
+								};
+
+								let output = '';
+								document.getElementById("comment").value.split('').forEach(l => {
+									output += rainbowLetter(l);
+								});
+
+								document.getElementById("output-instructions").innerHTML = "<p>Copy-paste the following to get your Rainbow text!</p>";
+								document.getElementById("output").innerText = output;
+							}
+						</script> 
+
+						<button type="submit" class="btn btn-primary" onclick="rainbowify()">Submit</button>
+					</form>
+
+					<hr>
+					<div id="output-instructions">
+						
+					</div>
+					<code>
+						<div id="output">
+						
+						</div>	
+					</code>		
+				</div>
+			</div>
+
+			<%- include('partials/copied'); -%>
+	</main>
+</body>
+
+<%- include('partials/footer'); -%>
+
+</html>

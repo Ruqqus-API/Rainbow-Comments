@@ -1,0 +1,24 @@
+{
+  "name": "ruqqus-rainbow-comments",
+  "version": "0.0.1",
+  "author": "dginovker",
+  "description": "Get ruqqus ouath access code",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "path": "^0.12.7",
+    "ruqqus-js": "^3.3.0",
+    "url": "^0.11.0",
+    "uuid": "^8.3.1"
+  },
+  "repository": {
+    "url": "https://github.com/Ruqqus-API/Rainbow-Comments"
+  }
+}
