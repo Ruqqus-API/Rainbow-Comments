@@ -57,7 +57,7 @@
 
 						</div>
 						<br>
-						<script>
+						<script>							
 							function rainbowify(){
 								const colors = ['#eb4034', '#eb8f34', '#b1eb34', '#34eb40', '#34b1eb', '#345feb', '#9334eb', '#eb3493'];
 								let index = 0;
@@ -71,7 +71,6 @@
 									output += rainbowLetter(l);
 								});
 
-								document.getElementById("output-instructions").innerHTML = "<p>Copy-paste the following to get your Rainbow text!</p>";
 								document.getElementById("output").innerText = output;
 
 								copyOutputToClipboard();
@@ -79,6 +78,7 @@
 
 							function copyOutputToClipboard() {
 								var selection = window.getSelection();
+								
 								var range = document.createRange();
 								range.selectNodeContents(document.getElementById("output"));
 								selection.removeAllRanges();
@@ -86,25 +86,29 @@
 								document.execCommand("Copy");
 								
 								document.getElementById("copiedToClipboardFeedback").style.visibility = "visible";
+								selection.removeAllRanges();
+
+								document.getElementById("waveify").focus();
+							
+								setTimeout((function(){
+									document.getElementById("comment").focus();
+								}),10)
 							}
 						</script> 
 
 						<button type="submit" class="btn btn-primary" onclick="rainbowify()">Submit</button>
 					</form>
 
-					<hr>
-					<div id="output-instructions">
-						
-					</div>
-					<code>
-						<div id="output" onclick="copyOutputToClipboard()">
-						
-						</div>	
-					</code>
 					<div id="copiedToClipboardFeedback" style="visibility:hidden;">
 						<br>
 						(Text automagically copied to clipboard!)
 					</div>
+					<hr>
+					<code>
+						<div id="output">
+						
+						</div>	
+					</code>
 				</div>
 			</div>
 
