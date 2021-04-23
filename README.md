@@ -2,7 +2,7 @@
 
 Automatic and secure way to get ruqqus api authentication token
 
-![banner](TODO)
+![banner](https://i.imgur.com/RoqmnQJ.png)
 <hr>
 
 ### Set up a local instance
