@@ -73,6 +73,19 @@
 
 								document.getElementById("output-instructions").innerHTML = "<p>Copy-paste the following to get your Rainbow text!</p>";
 								document.getElementById("output").innerText = output;
+
+								copyOutputToClipboard();
+							}
+
+							function copyOutputToClipboard() {
+								var selection = window.getSelection();
+								var range = document.createRange();
+								range.selectNodeContents(document.getElementById("output"));
+								selection.removeAllRanges();
+								selection.addRange(range);
+								document.execCommand("Copy");
+								
+								document.getElementById("copiedToClipboardFeedback").style.visibility = "visible";
 							}
 						</script> 
 
@@ -84,10 +97,14 @@
 						
 					</div>
 					<code>
-						<div id="output">
+						<div id="output" onclick="copyOutputToClipboard()">
 						
 						</div>	
-					</code>		
+					</code>
+					<div id="copiedToClipboardFeedback" style="visibility:hidden;">
+						<br>
+						(Text automagically copied to clipboard!)
+					</div>
 				</div>
 			</div>
 
